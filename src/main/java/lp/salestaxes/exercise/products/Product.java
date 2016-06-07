@@ -1,23 +1,39 @@
 package lp.salestaxes.exercise.products;
 
-public interface Product {
+public class Product {
+	
+	private final String name;
+	private final double price;
+	private final int qty;
+	
+	public Product(String name, double price, int quantity) {
+		this.name = name;
+		this.price = price;
+		this.qty = quantity;
+	}
 
 	/**
 	 * Name or description of the product.
 	 * @return name or description.
 	 */
-	String getName();
+	public String getName() {
+		return name;
+	}
 	
 	/**
 	 * Product net price.
 	 * 
 	 * @return price.
 	 */
-	double getPrice();
+	public double getPrice() {
+		return price;
+	}
 	
 	/**
 	 * @return the quantity of this product.
 	 */
-	int getQty();
+	public int getQty() {
+		return qty;
+	}
 	
 }
