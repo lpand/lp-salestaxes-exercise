@@ -1,28 +1,32 @@
 package lp.salestaxes.exercise.cart;
 
+import java.util.LinkedList;
 import java.util.List;
 
 import lp.salestaxes.exercise.products.Item;
 
 public class CartDefaultImpl implements Cart {
 	
+	private final Taxes taxes;
+
+	private final List<CartItem> cartItems = new LinkedList<CartItem>();
+	
 	public CartDefaultImpl(Taxes taxes) {
-		
+		this.taxes = taxes;
 	}
 
-	public Cart addProduct(Item product) {
-		// TODO Auto-generated method stub
-		return null;
+	public Cart addItem(Item item) {
+		cartItems.add(new CartItemImpl(item, taxes.getTaxes(item)));
+		return this;
 	}
 
-	public Cart addImportedProduct(Item product) {
+	public Cart addImportedItem(Item item) {
 		// TODO Auto-generated method stub
-		return null;
+		return this;
 	}
 
 	public List<CartItem> checkout() {
-		// TODO Auto-generated method stub
-		return null;
+		return new LinkedList<CartItem>(cartItems);
 	}
 	
 	protected static class CartItemImpl implements CartItem {
@@ -40,8 +44,7 @@ public class CartDefaultImpl implements Cart {
 		}
 
 		public double getPrice() {
-			double cost = item.getCost();
-			return taxes * cost + cost;
+			return taxes + item.getCost();
 		}
 
 		public double getTaxes() {

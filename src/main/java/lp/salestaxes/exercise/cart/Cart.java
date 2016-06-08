@@ -6,9 +6,9 @@ import lp.salestaxes.exercise.products.Item;
 
 public interface Cart {
 	
-	Cart addProduct(Item product);
+	Cart addItem(Item item);
 	
-	Cart addImportedProduct(Item product);
+	Cart addImportedItem(Item item);
 	
 	List<CartItem> checkout();
 
