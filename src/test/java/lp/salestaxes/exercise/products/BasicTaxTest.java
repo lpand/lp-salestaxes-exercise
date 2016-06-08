@@ -17,7 +17,7 @@ public class BasicTaxTest {
 
 	@Before
 	public void beforeEach() {
-		tax = new BasicTax(Arrays.asList(MEDICAL, FOOD), 0.5); 
+		tax = new BasicTax(Arrays.asList(BOOK), 0.5); 
 	}
 	
 	@Test

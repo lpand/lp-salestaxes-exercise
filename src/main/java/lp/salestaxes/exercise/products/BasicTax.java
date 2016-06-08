@@ -9,10 +9,9 @@ public class BasicTax extends SimpleTax {
 	private Set<Category> cats;
 
 	/**
-	 * It taxes an item only if it has at least one of the specified categories.
+	 * It taxes an item only if it has not one of the specified categories.
 	 * 
-	 * @param cats Categories a product must belong to in 
-	 * order to be taxed.
+	 * @param cats Categories exempted from taxes.
 	 * @param tax tax amount. A number in the interval [0, 1].
 	 */
 	public BasicTax(Collection<Category> cats, double tax) {
@@ -23,7 +22,7 @@ public class BasicTax extends SimpleTax {
 	public boolean hasTaxes(Item item) {
 		Set<Category> itemCats = item.getCategories();
 		itemCats.retainAll(cats);
-		return !itemCats.isEmpty();
+		return itemCats.isEmpty();
 	}
 
 }
