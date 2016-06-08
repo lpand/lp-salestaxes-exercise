@@ -2,6 +2,7 @@ package lp.salestaxes.exercise.cart;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.hasSize;
+import static org.hamcrest.Matchers.instanceOf;
 import static org.hamcrest.Matchers.is;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
@@ -11,11 +12,13 @@ import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.mockito.ArgumentCaptor;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 import lp.salestaxes.exercise.cart.Cart.CartItem;
 import lp.salestaxes.exercise.cart.CartDefaultImpl.CartItemImpl;
+import lp.salestaxes.exercise.products.ImportedProduct;
 import lp.salestaxes.exercise.products.Item;
 import lp.salestaxes.exercise.products.Samples;
 
@@ -53,7 +56,7 @@ public class CartDefaultImplTest {
 	}
 	
 	@Test
-	public void addItemComputesTaxesAndStoresACartItem() {
+	public void addItemComputesTaxes() {
 		cart.addItem(book);
 		
 		verify(taxCalc, times(1)).getTaxes(book);
@@ -61,6 +64,25 @@ public class CartDefaultImplTest {
 		cart.addItem(chocolates);
 		
 		verify(taxCalc, times(1)).getTaxes(chocolates);
+	}
+	
+	@Test
+	public void addImportedItemInvokesAddItemWithAnImportedProductAsArgument() {
+		ArgumentCaptor<Item> arg = ArgumentCaptor.forClass(Item.class);
+		cart.addImportedItem(book);
+		verify(taxCalc).getTaxes(arg.capture());
+		
+		Item prod = arg.getValue();
+		assertThat("The item is not an imported one", prod, is(instanceOf(ImportedProduct.class)));
+		
+		ImportedProduct importedItem = (ImportedProduct) prod;
+		assertThat(importedItem.getItem(), is(book));
+	}
+	
+	@Test
+	public void checkoutReturnsTaxedCartItems() {
+		cart.addItem(book);
+		cart.addItem(chocolates);
 		
 		List<CartItem> cartItems = cart.checkout();
 		

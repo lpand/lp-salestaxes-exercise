@@ -3,6 +3,7 @@ package lp.salestaxes.exercise.cart;
 import java.util.LinkedList;
 import java.util.List;
 
+import lp.salestaxes.exercise.products.ImportedProduct;
 import lp.salestaxes.exercise.products.Item;
 
 public class CartDefaultImpl implements Cart {
@@ -21,8 +22,7 @@ public class CartDefaultImpl implements Cart {
 	}
 
 	public Cart addImportedItem(Item item) {
-		// TODO Auto-generated method stub
-		return this;
+		return addItem(new ImportedProduct(item));
 	}
 
 	public List<CartItem> checkout() {

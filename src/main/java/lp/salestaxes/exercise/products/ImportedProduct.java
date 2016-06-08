@@ -27,4 +27,8 @@ public class ImportedProduct implements Item {
 		return prod.getCategories();
 	}
 
+	public Item getItem() {
+		return prod;
+	}
+
 }
