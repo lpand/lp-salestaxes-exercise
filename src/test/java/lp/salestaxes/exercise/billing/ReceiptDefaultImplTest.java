@@ -9,9 +9,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 import lp.salestaxes.exercise.cart.Cart.CartItem;
-import lp.salestaxes.exercise.cart.CartDefaultImpl;
-import lp.salestaxes.exercise.products.Item;
-import lp.salestaxes.exercise.products.Samples;
 
 public class ReceiptDefaultImplTest {
 	
