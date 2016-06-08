@@ -2,7 +2,6 @@ package lp.salestaxes.exercise.products;
 
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.EnumSet;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -53,7 +52,7 @@ public class Product {
 	 * @return Categories this product belongs to.
 	 */
 	public Set<Category> getCategories() {
-		return cats;
+		return new HashSet<Category>(cats);
 	}
 	
 }
