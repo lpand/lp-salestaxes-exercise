@@ -5,14 +5,15 @@ import java.util.List;
 
 import lp.salestaxes.exercise.products.ImportedProduct;
 import lp.salestaxes.exercise.products.Item;
+import lp.salestaxes.exercise.products.Tax;
 
 public class CartDefaultImpl implements Cart {
 	
-	private final Taxes taxes;
+	private final Tax taxes;
 
 	private final List<CartItem> cartItems = new LinkedList<CartItem>();
 	
-	public CartDefaultImpl(Taxes taxes) {
+	public CartDefaultImpl(Tax taxes) {
 		this.taxes = taxes;
 	}
 

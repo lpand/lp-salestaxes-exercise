@@ -21,6 +21,7 @@ import lp.salestaxes.exercise.cart.CartDefaultImpl.CartItemImpl;
 import lp.salestaxes.exercise.products.ImportedProduct;
 import lp.salestaxes.exercise.products.Item;
 import lp.salestaxes.exercise.products.Samples;
+import lp.salestaxes.exercise.products.Tax;
 
 public class CartDefaultImplTest {
 		
@@ -30,7 +31,7 @@ public class CartDefaultImplTest {
 	CartItem cartItem;
 	
 	Cart cart;
-	@Mock Taxes taxCalc;
+	@Mock Tax tax;
 	
 	@Before
 	public void beforeEach() {
@@ -49,28 +50,28 @@ public class CartDefaultImplTest {
 	
 	void makeCartWithTaxes() {
 		MockitoAnnotations.initMocks(this);
-		when(taxCalc.getTaxes(book)).thenReturn(2.1);
-		when(taxCalc.getTaxes(chocolates)).thenReturn(0.5);
+		when(tax.getTaxes(book)).thenReturn(2.1);
+		when(tax.getTaxes(chocolates)).thenReturn(0.5);
 
-		cart = new CartDefaultImpl(taxCalc);
+		cart = new CartDefaultImpl(tax);
 	}
 	
 	@Test
 	public void addItemComputesTaxes() {
 		cart.addItem(book);
 		
-		verify(taxCalc, times(1)).getTaxes(book);
+		verify(tax, times(1)).getTaxes(book);
 		
 		cart.addItem(chocolates);
 		
-		verify(taxCalc, times(1)).getTaxes(chocolates);
+		verify(tax, times(1)).getTaxes(chocolates);
 	}
 	
 	@Test
 	public void addImportedItemInvokesAddItemWithAnImportedProductAsArgument() {
 		ArgumentCaptor<Item> arg = ArgumentCaptor.forClass(Item.class);
 		cart.addImportedItem(book);
-		verify(taxCalc).getTaxes(arg.capture());
+		verify(tax).getTaxes(arg.capture());
 		
 		Item prod = arg.getValue();
 		assertThat("The item is not an imported one", prod, is(instanceOf(ImportedProduct.class)));
