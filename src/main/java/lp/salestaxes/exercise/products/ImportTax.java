@@ -1,8 +1,6 @@
 package lp.salestaxes.exercise.products;
 
-public class ImportTax implements Tax {
-
-	private final double tax;
+public class ImportTax extends SimpleTax {
 
 	/**
 	 * {@code tax} is that number which is multiplied by the 
@@ -11,11 +9,7 @@ public class ImportTax implements Tax {
 	 * @param tax a number in the interval [0, 1].
 	 */
 	public ImportTax(double tax) {
-		this.tax = tax;
-	}
-
-	public double getTaxes(Item item) {
-		return item.getCost() * tax;
+		super(tax);
 	}
 
 	public boolean hasTaxes(Item product) {

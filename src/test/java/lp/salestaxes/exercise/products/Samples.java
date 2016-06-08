@@ -17,4 +17,11 @@ public class Samples {
 		final double unitCost = 3.5;
 		return new Product(name, unitCost, qty, Category.FOOD);
 	}
+	
+	public static Item pills() {
+		final String name = "box of headache pills";
+		final int qty = 2;
+		final double unitCost = 5;
+		return new Product(name, unitCost, qty, Category.MEDICAL);
+	}
 }

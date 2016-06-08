@@ -12,7 +12,7 @@ public class ImportTaxTest {
 
 	@Before
 	public void beforeEach() {
-		tax = new ImportTax(0.5); // 5%
+		tax = new ImportTax(0.5); 
 	}
 	
 	@Test
@@ -20,12 +20,6 @@ public class ImportTaxTest {
 		Item book = Samples.digitalBook();
 		assertThat(tax.hasTaxes(book), is(false));
 		assertThat(tax.hasTaxes(new ImportedProduct(book)), is(true));
-	}
-	
-	@Test
-	public void taxesAreItemCostMultipliedByTheTaxParameter() {
-		Item book = new ImportedProduct(Samples.digitalBook());
-		assertThat(tax.getTaxes(book), is(book.getCost() * 0.5));
 	}
 
 }

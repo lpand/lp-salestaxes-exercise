@@ -13,7 +13,7 @@ public interface Item {
 	/**
 	 * Product cost.
 	 * 
-	 * @return cost.
+	 * @return unit cost * quantity.
 	 */
 	double getCost();
 
