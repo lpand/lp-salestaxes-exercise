@@ -5,7 +5,7 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
-public class Product {
+public class Product implements Item {
 	
 	private final String name;
 	private final double cost;
@@ -23,33 +23,29 @@ public class Product {
 		this(name, cost, quantity, Arrays.asList(category));
 	}
 	
-	/**
-	 * Name or description of the product.
-	 * @return name or description.
+	/* (non-Javadoc)
+	 * @see lp.salestaxes.exercise.products.Item#getName()
 	 */
 	public String getName() {
 		return name;
 	}
 	
-	/**
-	 * Product cost.
-	 * 
-	 * @return cost.
+	/* (non-Javadoc)
+	 * @see lp.salestaxes.exercise.products.Item#getCost()
 	 */
 	public double getCost() {
 		return cost;
 	}
 	
-	/**
-	 * @return the quantity of this product.
+	/* (non-Javadoc)
+	 * @see lp.salestaxes.exercise.products.Item#getQty()
 	 */
 	public int getQty() {
 		return qty;
 	}
 
-	/**
-	 * Categories this product belongs to.
-	 * @return Categories this product belongs to.
+	/* (non-Javadoc)
+	 * @see lp.salestaxes.exercise.products.Item#getCategories()
 	 */
 	public Set<Category> getCategories() {
 		return new HashSet<Category>(cats);

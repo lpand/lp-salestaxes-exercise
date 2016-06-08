@@ -1,13 +1,13 @@
 package lp.salestaxes.exercise.billing;
 
-import lp.salestaxes.exercise.products.Product;
+import lp.salestaxes.exercise.products.Item;
 
 public interface Receipt {
 	
 	String print();
 	
 	interface ReceiptEntry {
-		Product getProduct();
+		Item getProduct();
 		double getTaxes();
 	}
 

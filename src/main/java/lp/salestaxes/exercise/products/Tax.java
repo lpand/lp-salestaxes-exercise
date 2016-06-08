@@ -6,5 +6,5 @@ interface Tax {
 	 * @param product Taxed product.
 	 * @return The tax to apply.
 	 */
-	double getTax(Product product);
+	double getTax(Item product);
 }

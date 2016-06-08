@@ -14,7 +14,7 @@ import org.junit.Test;
 
 public class ProductTest {
 
-	Product prod;
+	Item prod;
 	final String name = "digital book To Kill a Mockingbird";
 	final int qty = 3;
 	final double unitCost = 3.5;
