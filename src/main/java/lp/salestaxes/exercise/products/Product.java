@@ -3,12 +3,12 @@ package lp.salestaxes.exercise.products;
 public class Product {
 	
 	private final String name;
-	private final double price;
+	private final double cost;
 	private final int qty;
 	
-	public Product(String name, double price, int quantity) {
+	public Product(String name, double cost, int quantity) {
 		this.name = name;
-		this.price = price * quantity;
+		this.cost = cost * quantity;
 		this.qty = quantity;
 	}
 
@@ -21,12 +21,12 @@ public class Product {
 	}
 	
 	/**
-	 * Product net price.
+	 * Product cost.
 	 * 
-	 * @return price.
+	 * @return cost.
 	 */
-	public double getPrice() {
-		return price;
+	public double getCost() {
+		return cost;
 	}
 	
 	/**
