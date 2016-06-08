@@ -1,0 +1,1 @@
+[![Build Status](https://travis-ci.org/lpand/lp-salestaxes-exercise.svg?branch=master)](https://travis-ci.org/lpand/lp-salestaxes-exercise)
