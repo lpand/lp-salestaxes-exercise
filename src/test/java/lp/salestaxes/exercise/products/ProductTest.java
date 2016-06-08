@@ -1,7 +1,7 @@
 package lp.salestaxes.exercise.products;
 
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.contains;
+import static org.hamcrest.Matchers.containsInAnyOrder;
 import static org.hamcrest.Matchers.empty;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.not;
@@ -29,7 +29,7 @@ public class ProductTest {
 		assertThat(prod.getName(), is(name));
 		assertThat(prod.getQty(), is(qty));
 		assertThat(prod.getCost(), is(qty * unitCost));
-		assertThat(prod.getCategories(), contains(Category.BOOK, Category.DIGITAL));
+		assertThat(prod.getCategories(), containsInAnyOrder(Category.BOOK, Category.DIGITAL));
 	}
 	
 	@Test
