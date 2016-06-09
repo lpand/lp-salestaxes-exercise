@@ -25,22 +25,6 @@ public class ReceiptDefaultImplTest {
 		rec = getReceipt(Locale.ENGLISH);
 	}
 
-// 	@Test
-// 	public void format() {
-// 		assertThat(rec.fmt(book), is("1 book: 13.30"));
-// //		assertThat(rec.format(10.5), is("10.50"));
-// //		assertThat(rec.format(1.0), is("1.00"));
-// 	}
-	
-// 	@Test
-// 	public void getTotalReturnsTheTotalPrice() {
-// 		assertThat(rec.getTotalFmt(29.83), is("Total: 29.83"));
-// 	}
-	
-// 	@Test
-// 	public void getTotalTaxesReturnsTheTotalTaxes() {
-// 		assertThat(rec.getTotalTaxesFmt(5.7), is("Sales Taxes: 5.70"));
-// 	}
 	
 	@Test
 	public void printFormat() {

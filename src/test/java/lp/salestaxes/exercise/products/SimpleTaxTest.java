@@ -28,7 +28,6 @@ public class SimpleTaxTest {
 		}
 
 		public boolean hasTaxes(Item product) {
-			// TODO Auto-generated method stub
 			return false;
 		}
 		
