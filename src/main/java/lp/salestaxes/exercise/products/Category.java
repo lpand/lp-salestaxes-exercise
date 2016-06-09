@@ -7,6 +7,7 @@ public enum Category {
 	BOOK,
 	DIGITAL,
 	MUSIC,
+	BEAUTY,
 	OTHER;
 	
 }
