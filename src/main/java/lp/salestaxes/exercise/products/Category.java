@@ -6,6 +6,7 @@ public enum Category {
 	MEDICAL, 
 	BOOK,
 	DIGITAL,
+	MUSIC,
 	OTHER;
 	
 }

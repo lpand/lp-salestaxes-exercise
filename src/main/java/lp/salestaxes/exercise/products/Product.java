@@ -23,6 +23,17 @@ public class Product implements Item {
 		this(name, cost, quantity, Arrays.asList(category));
 	}
 	
+	/**
+	 * Instantiates a product with one element only.
+	 * @see Product#Product(String, double, int, Category)
+	 * @param name
+	 * @param cost
+	 * @param category
+	 */
+	public Product(String name, double cost, Category category) {
+		this(name, cost, 1, Arrays.asList(category));
+	}
+	
 	/* (non-Javadoc)
 	 * @see lp.salestaxes.exercise.products.Item#getName()
 	 */
