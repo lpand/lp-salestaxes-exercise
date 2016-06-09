@@ -6,12 +6,16 @@ import static org.hamcrest.Matchers.is;
 import org.junit.After;
 import org.junit.Test;
 
+import java.util.Locale;
+
 import lp.salestaxes.exercise.cart.Cart;
 import lp.salestaxes.exercise.cart.Carts;
 import lp.salestaxes.exercise.products.Category;
 import lp.salestaxes.exercise.products.Product;
 
 public class ExerciseTest {
+
+	private final String DEL = System.getProperty("line.separator");
 
 	@Test
 	public void output1() {
@@ -55,7 +59,7 @@ public class ExerciseTest {
 	}
 	
 	String expectedReceipt1() {
-		return String.join("\n",
+		return String.join(DEL,
 				   "1 book: 12.49",
 	               "1 music CD: 16.49",
 	               "1 chocolate bar: 0.85",
@@ -71,7 +75,7 @@ public class ExerciseTest {
 	}
 	
 	String expectedReceipt2() {
-		return String.join("\n", 
+		return String.join(DEL, 
 			"1 imported box of chocolates: 10.50", 
 			"1 imported bottle of perfume: 54.65", 
 			"Sales Taxes: 7.65",
@@ -88,7 +92,7 @@ public class ExerciseTest {
 	}
 	
 	String expectedReceipt3() {
-		return String.join("\n", 
+		return String.join(DEL, 
 				"1 imported bottle of perfume: 32.19",
 				"1 bottle of perfume: 20.89",
 				"1 packet of headache pills: 9.75",
@@ -102,7 +106,7 @@ public class ExerciseTest {
 	}
 	
 	String receipt(Cart c) {
-		return Carts.newDefaultReceipt(c).print();
+		return Carts.newDefaultReceipt(Locale.ENGLISH, c).print();
 	}
 	
 	@After

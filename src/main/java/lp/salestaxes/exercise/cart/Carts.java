@@ -5,6 +5,7 @@ import static lp.salestaxes.exercise.products.Category.FOOD;
 import static lp.salestaxes.exercise.products.Category.MEDICAL;
 
 import java.util.Arrays;
+import java.util.Locale;
 
 import lp.salestaxes.exercise.billing.Receipt;
 import lp.salestaxes.exercise.billing.ReceiptDefaultImpl;
@@ -30,7 +31,7 @@ public class Carts {
 		return new CartDefaultImpl(complexTax);
 	}
 	
-	public static Receipt newDefaultReceipt(Cart cart) {
-		return new ReceiptDefaultImpl(cart.checkout());
+	public static Receipt newDefaultReceipt(Locale loc, Cart cart) {
+		return new ReceiptDefaultImpl(loc, cart.checkout());
 	}
 }
